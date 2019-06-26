@@ -12,7 +12,7 @@ const documentRouter = express.Router();
 
 documentRouter.get(routes.home, homeDocument);
 documentRouter.get(routes.read_document, readDocument);
-documentRouter.get(routes.create_document, createDocument);
+documentRouter.post(routes.create_document, createDocument);
 documentRouter.get(routes.update_document, updateDocument);
 documentRouter.get(routes.delete_document, deleteDocument);
 
