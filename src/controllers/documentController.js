@@ -10,11 +10,16 @@ export const homeDocument = async (req, res) => {
 };
 
 export const readDocument = async (req, res) => {
+  /**
+   * 기본적으로 get 요청이다.
+   * get 요청은 request body를 받지 않는다...
+   * get은 params와 query를 받을 수 있다. 둘의 차이는 아래 링크에서 확인
+   * https://codeday.me/ko/qa/20190315/71870.html
+   */
   // res.send("read document");
-  const { _id } = req.body;
-  console.log(res.body);
+  const { id } = req.params;
   try {
-    const document = await Document.findById(_id);
+    const document = await Document.findById(id);
     res.send(document);
   } catch (e) {
     console.log(e);
@@ -22,7 +27,6 @@ export const readDocument = async (req, res) => {
 };
 
 export const createDocument = (req, res) => {
-  console.log("create document : ", req.body);
   const { title, content } = req.body;
   try {
     Document.create({ title, content }, o => console.log(o));

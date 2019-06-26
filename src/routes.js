@@ -12,7 +12,7 @@ const JOIN = "/join";
  ******************/
 
 const DOCUMENTS = "/documents";
-const READ_DOCUMENT = "/read";
+const READ_DOCUMENT = "/read/:id";
 const CREATE_DOCUMENT = "/create";
 const UPDATE_DOCUMENT = "/update";
 const DELETE_DOCUMENT = "/delete";
