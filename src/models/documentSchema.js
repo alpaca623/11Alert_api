@@ -5,7 +5,6 @@ const documentSchema = mongoose.Schema({
     type: String,
     required: "Title is required"
   },
-  subTitle: String,
   content: String,
   author: String,
   createAt: {
