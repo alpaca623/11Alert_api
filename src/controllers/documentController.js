@@ -27,9 +27,9 @@ export const readDocument = async (req, res) => {
 };
 
 export const createDocument = (req, res) => {
-  const { title, content } = req.body;
+  const { title, content, type } = req.body;
   try {
-    Document.create({ title, content }, o => console.log(o));
+    Document.create({ title, content, type }, o => console.log(o));
     res.send("✅ complete create document");
   } catch (e) {
     console.error(e);
@@ -38,9 +38,17 @@ export const createDocument = (req, res) => {
 };
 
 export const updateDocument = (req, res) => {
-  res.send("update document");
+  const { id, title, content, type } = req.body;
+  console.log(req.body);
 };
 
-export const deleteDocument = (req, res) => {
-  res.send("delete document");
+export const deleteDocument = async (req, res) => {
+  const { id } = req.body;
+  try {
+    await Document.findByIdAndRemove(id);
+    res.send("✅ complete delete document");
+  } catch (e) {
+    console.log(e);
+    res.send("❌ fail delete document");
+  }
 };
